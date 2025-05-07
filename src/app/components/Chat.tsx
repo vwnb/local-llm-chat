@@ -1,6 +1,6 @@
 'use client'
 
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent, KeyboardEvent, useState } from 'react'
 import Loading from './Loading';
 
 interface ChatBubble {
@@ -21,6 +21,12 @@ export default function Chat() {
   const handleInput = (event: ChangeEvent<HTMLInputElement>) => {
     setInput(event.target.value)
   }
+
+  const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === 'Enter') {
+      callApi()
+    }
+  };
 
   const callApi = async () => {
     try {
@@ -59,8 +65,8 @@ export default function Chat() {
       {loading ? <Loading /> : ""}
       {error ?  <div className="flex flex-col gap-2 p-2">{error}</div> : ""}
       <div className="flex gap-2">
-        <input className="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" type="text" value={input} onChange={handleInput} />
-        <button className="w-full p-2 bg-blue-500 text-white font-semibold rounded-md shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50" onClick={callApi}>Ask</button>
+        <input className="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" type="text" value={input} onChange={handleInput} onKeyDown={handleKeyDown} />
+        <button className="flex-shrink py-2 px-8 bg-blue-500 text-white font-semibold rounded-md shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50" onClick={callApi}>Ask</button>
       </div>
     </>
   )
