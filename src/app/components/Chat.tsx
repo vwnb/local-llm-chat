@@ -70,8 +70,8 @@ export default function Chat() {
       {error ? <div className="flex flex-col gap-2 p-2">{error}</div> : ""}
       <Divider />
       <div className="flex gap-2">
-        <input className="w-full py-2 px-4 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-500 focus:border-slate-500" type="text" value={input} onChange={handleInput} onKeyDown={handleKeyDown} placeholder="Submit with enter key..." />
-        <button className="flex-shrink py-2 px-8 bg-slate-200 font-semibold rounded-md shadow-md hover:bg-slate-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-opacity-50" onClick={callApi}>🌸&nbsp;Send</button>
+        <input className="w-full py-2 px-4 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-500 focus:border-slate-500" type="text" value={input} onChange={handleInput} onKeyDown={handleKeyDown} placeholder="Submit with enter key..." />
+        <button className="flex-shrink py-2 px-8 bg-slate-200 font-semibold rounded-md shadow-md hover:bg-slate-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-opacity-50 cursor-pointer" onClick={callApi}>🌸&nbsp;Send</button>
       </div>
     </>
   )
