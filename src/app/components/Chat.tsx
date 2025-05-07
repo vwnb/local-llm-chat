@@ -59,14 +59,14 @@ export default function Chat() {
     <>
       <div className="flex flex-col gap-2 p-2">
         {chatBubbles.map((chatBubble, index) => {
-          return <div key={index} className={`w-auto p-2 rounded-md max-w-[70%] ${chatBubble.sender === ChatSender.AI ? 'bg-gray-100 mr-auto' : 'bg-blue-500 text-white ml-auto'}`}>{chatBubble.message}</div>
+          return <div key={index} className={`w-auto p-2 rounded-md max-w-[70%] ${chatBubble.sender === ChatSender.AI ? 'bg-white text-black mr-auto' : 'bg-gray-100 text-black ml-auto'}`}>{chatBubble.message}</div>
         })}
       </div>
       {loading ? <Loading /> : ""}
       {error ?  <div className="flex flex-col gap-2 p-2">{error}</div> : ""}
       <div className="flex gap-2">
-        <input className="w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" type="text" value={input} onChange={handleInput} onKeyDown={handleKeyDown} />
-        <button className="flex-shrink py-2 px-8 bg-blue-500 text-white font-semibold rounded-md shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50" onClick={callApi}>Ask</button>
+        <input className="w-full py-2 px-4 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-500 focus:border-slate-500" type="text" value={input} onChange={handleInput} onKeyDown={handleKeyDown} placeholder="Ask anything..." />
+        <button className="flex-shrink py-2 px-8 bg-slate-500 text-white font-semibold rounded-md shadow-md hover:bg-slate-600 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-opacity-50" onClick={callApi}>Send</button>
       </div>
     </>
   )
