@@ -52,6 +52,7 @@ export default function Chat() {
             method: "GET",
             headers: {
               "User-Agent": "Hello",
+              "ngrok-skip-browser-warning": "Hello",
             }
           });
           const text = await res.text();
