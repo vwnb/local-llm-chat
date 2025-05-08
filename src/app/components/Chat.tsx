@@ -81,7 +81,7 @@ export default function Chat() {
       <Divider />
       <div className="flex gap-2">
         <input className="w-full py-2 px-4 border border-gray-200 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-slate-500 focus:border-slate-500" type="text" value={input} onChange={handleInput} onKeyDown={handleKeyDown} placeholder="Submit with enter key..." />
-        <button className="flex-shrink py-2 px-8 bg-slate-200 font-semibold rounded-md shadow-md hover:bg-slate-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-opacity-50 cursor-pointer" onClick={callApi}>🌸&nbsp;Send</button>
+        <button className="flex-shrink py-2 px-8 bg-gray-100 font-semibold rounded-md shadow-md hover:bg-gray-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-opacity-50 cursor-pointer" onClick={callApi}>Send</button>
       </div>
     </>
   )
