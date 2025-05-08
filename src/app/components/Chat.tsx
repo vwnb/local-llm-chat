@@ -40,8 +40,9 @@ export default function Chat() {
 
       if (!userMessage) return;
 
-      setInput('');
-      setLoading(true);
+      setInput('')
+      setLoading(true)
+      setError('')
 
       setChatBubbles(prev => [...prev, { sender: ChatSender.User, message: userMessage }]);
 
