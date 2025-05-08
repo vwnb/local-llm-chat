@@ -14,6 +14,8 @@ enum ChatSender {
 }
 
 export default function Chat() {
+  const apiUrl = 'http://df9a-2001-14bb-c6-9e02-215b-1486-a084-95ce.ngrok-free.app'
+
   const [input, setInput] = useState<string>('')
   const [chatBubbles, setChatBubbles] = useState<ChatBubble[]>([])
   const [error, setError] = useState<string | null>(null)
@@ -42,7 +44,12 @@ export default function Chat() {
 
       setTimeout(async () => {
         try {
-          const res = await fetch(`http://localhost:5000/ask?question=${userMessage}`);
+          const res = await fetch(`${apiUrl}/ask?question=${userMessage}`, {
+            method: "GET",
+            headers: {
+              "User-Agent": "Hello",
+            }
+          });
           const text = await res.text();
 
           setChatBubbles(prev => [...prev, { sender: ChatSender.AI, message: text }]);
