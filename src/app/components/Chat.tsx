@@ -18,7 +18,8 @@ export default function Chat() {
 
   const [input, setInput] = useState<string>('')
   const [chatBubbles, setChatBubbles] = useState<ChatBubble[]>([{
-    sender: ChatSender.AI, message: "Hello! I am Ville's finetuned personal AI meant to help recruiters and employers."
+    sender: ChatSender.AI,
+    message: "Hello! I am Ville's finetuned personal AI meant to help recruiters and employers. Ask anything!"
   }])
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState<boolean>(false)
