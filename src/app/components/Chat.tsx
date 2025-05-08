@@ -17,7 +17,9 @@ export default function Chat() {
   const apiUrl = 'https://df9a-2001-14bb-c6-9e02-215b-1486-a084-95ce.ngrok-free.app'
 
   const [input, setInput] = useState<string>('')
-  const [chatBubbles, setChatBubbles] = useState<ChatBubble[]>([])
+  const [chatBubbles, setChatBubbles] = useState<ChatBubble[]>([{
+    sender: ChatSender.AI, message: "Hello! I am Ville's finetuned personal AI meant to help recruiters and employers."
+  }])
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState<boolean>(false)
 
