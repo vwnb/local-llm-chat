@@ -54,7 +54,7 @@ export default function Chat() {
 
           setChatBubbles(prev => [...prev, { sender: ChatSender.AI, message: text }]);
         } catch {
-          setError('Error calling API');
+          setError("Error calling API. It's likely the backend isn't running at all right now :)");
         } finally {
           setLoading(false);
         }
