@@ -53,15 +53,15 @@ export default function Chat() {
           const text = await res.text();
 
           setChatBubbles(prev => [...prev, { sender: ChatSender.AI, message: text }]);
-        } catch (e) {
-          setError('Error calling API');
+        } catch (error: any) {
+          setError('Error calling API :' + error.message);
         } finally {
           setLoading(false);
         }
       }, 0);
 
-    } catch (err) {
-      setError('Error in chat');
+    } catch (error: any) {
+      setError('Error in chat :' + error.message);
       setLoading(false);
     }
   };
