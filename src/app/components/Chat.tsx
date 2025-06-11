@@ -3,7 +3,6 @@
 import { ChangeEvent, KeyboardEvent, useState } from 'react'
 import Loading from './Loading';
 import Divider from './Divider';
-import Error from 'next/error';
 
 interface ChatBubble {
   sender: ChatSender;
@@ -59,8 +58,8 @@ export default function Chat() {
           const text = await res.text();
 
           setChatBubbles(prev => [...prev, { sender: ChatSender.AI, message: text }]);
-        } catch (error: any) {
-          setError("Error calling API. It's likely the backend isn't running at all right now :) " + error);
+        } catch {
+          setError("Error calling API. It's likely the backend isn't running at all right now :)");
         } finally {
           setLoading(false);
         }
