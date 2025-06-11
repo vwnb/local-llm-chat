@@ -14,7 +14,7 @@ enum ChatSender {
 }
 
 export default function Chat() {
-  const apiUrl = 'https://df9a-2001-14bb-c6-9e02-215b-1486-a084-95ce.ngrok-free.app'
+  const apiUrl = 'https://7ee4-2001-14bb-a5-bbd-342c-d8a0-4234-bd64.ngrok-free.app'
 
   const [input, setInput] = useState<string>('')
   const [chatBubbles, setChatBubbles] = useState<ChatBubble[]>([{
