@@ -3,6 +3,7 @@
 import { ChangeEvent, KeyboardEvent, useState } from 'react'
 import Loading from './Loading';
 import Divider from './Divider';
+import Error from 'next/error';
 
 interface ChatBubble {
   sender: ChatSender;
@@ -14,7 +15,7 @@ enum ChatSender {
 }
 
 export default function Chat() {
-  const apiUrl = 'https://7ee4-2001-14bb-a5-bbd-342c-d8a0-4234-bd64.ngrok-free.app'
+  const apiUrl = 'http://127.0.0.1:5000'
 
   const [input, setInput] = useState<string>('')
   const [chatBubbles, setChatBubbles] = useState<ChatBubble[]>([{
@@ -52,14 +53,14 @@ export default function Chat() {
             method: "GET",
             headers: {
               "User-Agent": "Hello",
-              "ngrok-skip-browser-warning": "Hello",
+              "ngrok-skip-browser-warning": "true",
             }
           });
           const text = await res.text();
 
           setChatBubbles(prev => [...prev, { sender: ChatSender.AI, message: text }]);
-        } catch {
-          setError("Error calling API. It's likely the backend isn't running at all right now :)");
+        } catch (error: any) {
+          setError("Error calling API. It's likely the backend isn't running at all right now :) " + error);
         } finally {
           setLoading(false);
         }
