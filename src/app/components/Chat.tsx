@@ -14,12 +14,12 @@ enum ChatSender {
 }
 
 export default function Chat() {
-  const apiUrl = 'http://127.0.0.1:5000'
+  const apiUrl = process.env.NEXT_PUBLIC_AI_API_URL
 
   const [input, setInput] = useState<string>('')
   const [chatBubbles, setChatBubbles] = useState<ChatBubble[]>([{
     sender: ChatSender.AI,
-    message: "Hello! I am Ville's finetuned personal AI meant to help recruiters and employers. Ask anything!"
+    message: "I am not an AI but a mere UI"
   }])
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState<boolean>(false)
